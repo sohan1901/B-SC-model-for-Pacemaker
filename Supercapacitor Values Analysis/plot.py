@@ -7,10 +7,17 @@ import pandas as pd
 # Load data from the CSV file
 data = pd.read_csv('Mydata.csv')
 
+# Choose "Atrium" or "Ventrium"
+chamber = "Atrium"
+
 # Separate the data into x, y, and z arrays
 x = data.iloc[:, 0]
 y = data.iloc[:, 1]
-z = data.iloc[:, 2]
+if chamber == "Atrium":
+    z = data.iloc[:, 2]
+else:
+    z = data.iloc[:, 3]
+
 
 # Create a 3D plot
 fig = plt.figure()
@@ -19,10 +26,13 @@ ax = fig.add_subplot(111, projection='3d')
 # Plot a surface (plane)
 ax.plot_trisurf(x, y, z, cmap='viridis', edgecolor='none')
 
+# Set title
+ax.set_title("Probability for that Supercapacitor is not available to pace "+chamber)
+
 # Set labels
 ax.set_xlabel('Charge in Supercapacitor\n(in charge units)', rotation=45)
 ax.set_ylabel('Supercapacitor charging rate\n(in charge units per millisecond)', rotation=-45)
-ax.set_zlabel('Probability that Supercapacitor\nis not available')
+ax.set_zlabel('Probability that Supercapacitor\nis not available to pace '+chamber)
 
 def update_plot(i):
     ax.view_init(elev=10, azim=i)
