@@ -16,4 +16,4 @@ set xlabel "Supercapacitor charging rate\n(in charge units per millisecond)"
 set ylabel sprintf("Probability that Supercapacitor is\nnot available to pace %s", chamber)
 
 # Plot using the chosen y-axis column
-plot "Mydata.csv" using ($1 == max_charge_in_supercapacitor ? $2 : 1/0):(column(y_column)) with lines title "Probability that Supercapacitor is not available" lw 1
+plot "Mydata.csv" using ($1 == max_charge_in_supercapacitor ? $2 : 1/0):(column(y_column)) with lines title "Probability that Supercapacitor\nis not available to pace ".chamber lw 1
