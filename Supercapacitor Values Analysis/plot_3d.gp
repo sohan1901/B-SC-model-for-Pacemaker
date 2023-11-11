@@ -14,10 +14,10 @@ set datafile separator whitespace  # Set the separator if your data file uses a 
 
 # Plot for "Atrium"
 if (chamber eq "Atrium") {
-    splot 'Mydata.csv' using 1:2:3 with lines title 'Probability for that Supercapacitor is not available'
+    splot 'Mydata.csv' using 1:2:3 with lines title "Probability that Supercapacitor\nis not available to pace ".chamber
 }
 
 # Plot for "Ventrium"
 if (chamber eq "Ventrium") {
-    splot 'Mydata.csv' using 1:2:4 with lines title 'Probability for that Supercapacitor is not available'
+    splot 'Mydata.csv' using 1:2:4 with lines title "Probability that Supercapacitor\nis not available to pace ".chamber
 }
